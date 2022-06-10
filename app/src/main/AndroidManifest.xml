@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimCity_SaoJoao">
         <activity
+            android:name=".produto.ProdutosActivity"
+            android:exported="true" />
+        <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -20,9 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <activity
-        android:name=".home.HomeActivity"
-        android:exported="true"/>
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
