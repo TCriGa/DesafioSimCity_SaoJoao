@@ -1,4 +1,4 @@
-package br.com.zup.simcity_saojoao.produto.fragmentsProduto
+package br.com.zup.simcity_saojoao.produto.detalhe
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

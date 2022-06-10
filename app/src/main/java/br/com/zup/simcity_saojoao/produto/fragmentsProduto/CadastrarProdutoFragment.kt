@@ -1,12 +1,12 @@
 package br.com.zup.simcity_saojoao.produto.fragmentsProduto
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcity_saojoao.*
 import br.com.zup.simcity_saojoao.databinding.FragmentCadastrarProdutoBinding
@@ -25,15 +25,14 @@ class CadastrarProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCadastrarProdutoBinding.inflate(inflater, container, false)
-        binding.buttonVerProdutos.setOnClickListener {
-            enviarDadosCarrinho()
-        }
 
         binding.buttonCadastrarNovoProduto.setOnClickListener {
             enviarDadosCarrinho()
         }
+        binding.buttonVerProdutos.setOnClickListener {
+            enviarDadosCarrinho()
+        }
         return binding.root
-
 
 
     }
@@ -50,26 +49,27 @@ class CadastrarProdutoFragment : Fragment() {
                 )
             cadastrarProduto()
             irParaDetalheProduto(produto)
-
         }
-
 
     }
 
     private fun irParaDetalheProduto(produto: Produto) {
+        binding.buttonVerProdutos.setOnClickListener {
             val bundle = bundleOf(CHAVE_PRODUTO to produto)
             NavHostFragment.findNavController(this)
-                .navigate(R.id.action_cadastrarProdutoFragment_to_detalheProdutoFragment, bundle)
+                .navigate(R.id.action_cadastrarProdutoFragment_to_listaProdutoFragment, bundle)
             limparDadosDoCarrinho()
+        }
 
     }
 
     private fun cadastrarProduto() {
-                Toast.makeText(
-                    context,
-                    getString(R.string.produto_cadastrado_sucesso),
-                    Toast.LENGTH_LONG
-                ).show()
+            Toast.makeText(
+                context,
+                getString(R.string.produto_cadastrado_sucesso),
+                Toast.LENGTH_LONG
+            ).show()
+
     }
 
     private fun recuperarDadosProdutos() {
