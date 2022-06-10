@@ -57,22 +57,19 @@ class CadastrarProdutoFragment : Fragment() {
     }
 
     private fun irParaDetalheProduto(produto: Produto) {
-        binding.buttonVerProdutos.setOnClickListener {
             val bundle = bundleOf(CHAVE_PRODUTO to produto)
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_cadastrarProdutoFragment_to_detalheProdutoFragment, bundle)
             limparDadosDoCarrinho()
-        }
+
     }
 
     private fun cadastrarProduto() {
-        binding.buttonCadastrarNovoProduto.setOnClickListener {
                 Toast.makeText(
                     context,
                     getString(R.string.produto_cadastrado_sucesso),
                     Toast.LENGTH_LONG
                 ).show()
-        }
     }
 
     private fun recuperarDadosProdutos() {

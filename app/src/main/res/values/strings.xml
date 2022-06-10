@@ -16,4 +16,9 @@
     <string name="ver_produto">Ver Produto</string>
     <string name="valor_total">Valor Total</string>
     <string name="produto_cadastrado_sucesso">Produto Cadastrado com sucesso!</string>
+    <string name="produtos_cadastrados">Produtos Cadastrados:</string>
+    <string name="quantidade_de_produto">Quantidade de produto</string>
+    <string name="descircao_carrinho">Imagem de um carrinho de supermercado</string>
+    <string name="nome_do_produto_cadastrado">Nome do Produto Cadastrado</string>
+    <string name="quantidade">Quantidade</string>
 </resources>

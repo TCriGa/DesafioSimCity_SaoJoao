@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/text_Cadastro"
+        android:id="@+id/text_cadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.057" />
 
     <EditText
-        android:id="@+id/edit_NomeProduto"
+        android:id="@+id/edit_nomeProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size_16"
@@ -42,24 +42,24 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/fragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Cadastro"
+        app:layout_constraintTop_toBottomOf="@+id/text_cadastro"
         app:layout_constraintVertical_bias="0.065" />
 
     <EditText
-        android:id="@+id/edit_Quantidade"
+        android:id="@+id/edit_quantidade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
-        android:hint="Quantidade de produto"
+        android:hint="@string/quantidade_de_produto"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_NomeProduto"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nomeProduto"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/edit_ValorUnitario"
+        android:id="@+id/edit_valorUnitario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -69,11 +69,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Quantidade"
+        app:layout_constraintTop_toBottomOf="@+id/edit_quantidade"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/edit_Receita"
+        android:id="@+id/edit_receita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -83,11 +83,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_ValorUnitario"
+        app:layout_constraintTop_toBottomOf="@+id/edit_valorUnitario"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_CadastrarNovoProduto"
+        android:id="@+id/button_cadastrarNovoProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -95,12 +95,12 @@
         android:text="@string/cadastrar_novo_produto"
         android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="@+id/fragment"
-        app:layout_constraintTop_toBottomOf="@+id/edit_Receita"
+        app:layout_constraintTop_toBottomOf="@+id/edit_receita"
         app:layout_constraintVertical_bias="0.116"
         tools:layout_editor_absoluteX="16dp" />
 
     <Button
-        android:id="@+id/button_VerProdutos"
+        android:id="@+id/button_verProdutos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -110,11 +110,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_CadastrarNovoProduto"
+        app:layout_constraintTop_toBottomOf="@+id/button_cadastrarNovoProduto"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_ValorTotal"
+        android:id="@+id/button_valorTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -124,7 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_VerProdutos"
+        app:layout_constraintTop_toBottomOf="@+id/button_verProdutos"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
