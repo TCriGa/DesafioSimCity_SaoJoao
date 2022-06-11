@@ -20,7 +20,7 @@ class ProdutosActivity : AppCompatActivity() {
         binding = ActivityProdutosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mudarActionBar()
-        supportFragmentManager.findFragmentById(binding.navHostFragment.id) as NavHostFragment
+
     }
 
 

@@ -6,20 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.zup.simcity_saojoao.CHAVE_PRODUTO
-import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.FragmentDetalheProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
-import kotlinx.coroutines.internal.artificialFrame
 
 class DetalheProdutoFragment : Fragment() {
 
-private lateinit var binding: FragmentDetalheProdutoBinding
+    private lateinit var binding: FragmentDetalheProdutoBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDetalheProdutoBinding.inflate(inflater,container, false )
+        binding = FragmentDetalheProdutoBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -28,14 +26,13 @@ private lateinit var binding: FragmentDetalheProdutoBinding
         recuperarDadosProduto()
     }
 
-    private fun recuperarDadosProduto(){
+    private fun recuperarDadosProduto() {
         val produto = arguments?.getParcelable<Produto>(CHAVE_PRODUTO)
-        if (produto != null){
-            binding.textNomeProduto.text = produto.getNomeProduto()
-            binding.textValorUnitario.text = produto.getValorProduto().toString()
-            binding.textQuantidade.text = produto.getQuantidade().toString()
-            binding.textReceita.text = produto.getReceita()
+        if (produto != null) {
+            binding.textNomeProduto.text = "Nome Produto ${produto.getNomeProduto()}"
+            binding.textQuantidade.text = "Quantidade : ${produto.getQuantidade()}"
+            binding.textValorUnitario.text = "Valor unitário: ${produto.getValorProduto()}"
+            binding.textReceita.text = "Receita: ${produto.getReceita()}"
         }
     }
-
 }

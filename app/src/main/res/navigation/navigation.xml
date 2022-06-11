@@ -17,5 +17,14 @@
         android:id="@+id/listaProdutoFragment"
         android:name="br.com.zup.simcity_saojoao.produto.fragmentsProduto.ListaProdutoFragment"
         android:label="fragment_lista_produto"
-        tools:layout="@layout/fragment_lista_produto" />
+        tools:layout="@layout/fragment_lista_produto" >
+        <action
+            android:id="@+id/action_listaProdutoFragment_to_detalheProdutoFragment"
+            app:destination="@id/detalheProdutoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalheProdutoFragment"
+        android:name="br.com.zup.simcity_saojoao.produto.detalhe.DetalheProdutoFragment"
+        android:label="fragment_detalhe_produto"
+        tools:layout="@layout/fragment_detalhe_produto" />
 </navigation>
