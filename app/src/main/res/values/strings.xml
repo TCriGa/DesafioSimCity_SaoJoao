@@ -9,16 +9,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tituo_produtos">Produtos</string>
     <string name="cadastro_de_produto">Cadastro de Produto</string>
-    <string name="nome_do_produto">Nome do produto</string>
-    <string name="valor_unitario_do_produto">Valor(unitario) do produto</string>
-    <string name="receita">Receita</string>
+    <string name="nome_do_produto">Nome do produto:</string>
+    <string name="valor_unitario_do_produto">Valor(unitario) do produto:</string>
+    <string name="receita">Receita:</string>
     <string name="cadastrar_novo_produto">Cadastrar Novo Produto</string>
     <string name="ver_produto">Ver Produto</string>
-    <string name="valor_total">Valor Total</string>
+    <string name="valor_total">Valor Total:</string>
     <string name="produto_cadastrado_sucesso">Produto Cadastrado com sucesso!</string>
     <string name="produtos_cadastrados">Produtos Cadastrados:</string>
     <string name="quantidade_de_produto">Quantidade de produto</string>
     <string name="descircao_carrinho">Imagem de um carrinho de supermercado</string>
     <string name="nome_do_produto_cadastrado">Nome do Produto Cadastrado</string>
-    <string name="quantidade">Quantidade</string>
+    <string name="quantidade">Quantidade:</string>
+    <string name="mensagem_carrinho_vazio">Nada aqui :/ , Você não adicionou nada ao seu carrinho</string>
 </resources>

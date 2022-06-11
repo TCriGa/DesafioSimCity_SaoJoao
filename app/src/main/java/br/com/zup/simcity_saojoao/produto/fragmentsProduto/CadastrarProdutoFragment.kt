@@ -13,7 +13,7 @@ import br.com.zup.simcity_saojoao.databinding.FragmentCadastrarProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
 
 class CadastrarProdutoFragment : Fragment() {
-
+    private lateinit var produto: Produto
     private lateinit var binding: FragmentCadastrarProdutoBinding
     private lateinit var nomeProduto: String
     private lateinit var quantidade: String
@@ -25,52 +25,32 @@ class CadastrarProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCadastrarProdutoBinding.inflate(inflater, container, false)
-
-        binding.buttonCadastrarNovoProduto.setOnClickListener {
-            enviarDadosCarrinho()
-        }
-        binding.buttonVerProdutos.setOnClickListener {
-            enviarDadosCarrinho()
-        }
         return binding.root
 
-
     }
 
-    private fun enviarDadosCarrinho() {
-        recuperarDadosProdutos()
-        if (!verificarCamposEdicao()) {
-            val produto =
-                Produto(
-                    nomeProduto,
-                    quantidade.toInt(),
-                    valorProduto.toDouble(),
-                    receita
-                )
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonCadastrarNovoProduto.setOnClickListener {
             cadastrarProduto()
-            irParaDetalheProduto(produto)
-        }
-
-    }
-
-    private fun irParaDetalheProduto(produto: Produto) {
-        binding.buttonVerProdutos.setOnClickListener {
-            val bundle = bundleOf(CHAVE_PRODUTO to produto)
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_cadastrarProdutoFragment_to_listaProdutoFragment, bundle)
             limparDadosDoCarrinho()
         }
-
+        binding.buttonVerProdutos.setOnClickListener {
+            irParaDetalheProduto()
+        }
     }
 
     private fun cadastrarProduto() {
+        recuperarDadosProdutos()
+        if (!verificarCamposEdicao()) {
             Toast.makeText(
                 context,
                 getString(R.string.produto_cadastrado_sucesso),
                 Toast.LENGTH_LONG
             ).show()
-
+        }
     }
+
 
     private fun recuperarDadosProdutos() {
         this.nomeProduto = binding.editNomeProduto.text.toString()
@@ -79,6 +59,19 @@ class CadastrarProdutoFragment : Fragment() {
         this.receita = binding.editReceita.text.toString()
     }
 
+    private fun irParaDetalheProduto() {
+        try {
+            produto = Produto(nomeProduto, quantidade.toInt(), valorProduto.toDouble(), receita)
+            val bundle = bundleOf(CHAVE_PRODUTO to produto)
+            NavHostFragment.findNavController(this)
+                .navigate(R.id.action_cadastrarProdutoFragment_to_listaProdutoFragment, bundle)
+
+        } catch (ex: Exception) {
+            Toast.makeText(context, getString(R.string.mensagem_carrinho_vazio), Toast.LENGTH_SHORT)
+                .show()
+            recuperarDadosProdutos()
+        }
+    }
 
     private fun verificarCamposEdicao(): Boolean {
         when {
@@ -100,7 +93,6 @@ class CadastrarProdutoFragment : Fragment() {
             }
         }
         return false
-
     }
 
     private fun limparDadosDoCarrinho() {
@@ -110,3 +102,4 @@ class CadastrarProdutoFragment : Fragment() {
         binding.editReceita.text.clear()
     }
 }
+

@@ -26,16 +26,16 @@ class ProdutoAdapter(
 
     override fun getItemCount() = listaProdutos.size
 
-    fun atualizarListaProdutos(novaListaProduto : MutableList<Produto>){
+    fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>){
         if (listaProdutos.size == 0){
             listaProdutos = novaListaProduto
         }else{
             listaProdutos.addAll(novaListaProduto)
         }
+        notifyDataSetChanged()
     }
 
     class ViewHolder(val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
         fun adicionarInformacoesView(produto: Produto) {
             binding.textListaProdutosCadastrados.text = produto.getNomeProduto()
             binding.textQuantidadeCadastrada.text = produto.getQuantidade().toString()
