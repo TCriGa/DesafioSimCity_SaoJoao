@@ -36,8 +36,8 @@ class ProdutoAdapter(
 
     class ViewHolder(val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun adicionarInformacoesView(produto: Produto) {
-            binding.textListaProdutosCadastrados.text = "Nome do produto: ${produto.getNomeProduto()}"
-            binding.textQuantidadeCadastrada.text = "Quantidade: ${produto.getQuantidade()}"
+            binding.textListaProdutosCadastrados.text = produto.getNomeProduto()
+            binding.textQuantidadeCadastrada.text = "${produto.getQuantidade()}   -->"
         }
     }
 }

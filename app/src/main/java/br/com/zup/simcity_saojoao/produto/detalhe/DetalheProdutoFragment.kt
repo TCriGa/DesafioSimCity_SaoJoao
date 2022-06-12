@@ -1,7 +1,15 @@
 package br.com.zup.simcity_saojoao.produto.detalhe
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
+import android.text.style.TypefaceSpan
 import android.view.*
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -12,6 +20,7 @@ import androidx.fragment.app.clearFragmentResult
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import br.com.zup.simcity_saojoao.CHAVE_PRODUTO
+import br.com.zup.simcity_saojoao.NOM_PRODUTO
 import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.FragmentDetalheProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
@@ -45,11 +54,14 @@ class DetalheProdutoFragment : Fragment() {
     }
     private fun recuperarExibirDadosProduto() {
         val produto = arguments?.getParcelable<Produto>(CHAVE_PRODUTO)
+
         if (produto != null) {
-            binding.textNomeProduto.text = "Nome Produto ${produto.getNomeProduto()}"
-            binding.textQuantidade.text = "Quantidade : ${produto.getQuantidade()}"
-            binding.textValorUnitario.text = "Valor unitário: ${produto.getValorProduto()}"
-            binding.textReceita.text = "Receita: ${produto.getReceita()}"
+            binding.textNomeProduto.text = "${getString(R.string.nome_do_produto)} ${produto.getNomeProduto()}"
+            binding.textQuantidade.text = "${getString(R.string.quantidade_produto)} ${produto.getQuantidade()}"
+            binding.textValorUnitario.text = "${getString(R.string.valor_unitario)}: ${produto.getValorProduto()}"
+            binding.textReceita.text = "${getString(R.string.receita_produto)} ${produto.getReceita()}"
+
+
         }
     }
 
