@@ -29,8 +29,6 @@ class ProdutoAdapter(
 
     fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
         if (listaProdutos.size == 0) {
-            listaProdutos = novaListaProduto
-        } else {
             listaProdutos.addAll(novaListaProduto)
         }
         notifyDataSetChanged()

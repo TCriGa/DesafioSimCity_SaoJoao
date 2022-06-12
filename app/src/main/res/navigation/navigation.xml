@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_cadastrarProdutoFragment_to_listaProdutoFragment"
             app:destination="@id/listaProdutoFragment" />
+        <action
+            android:id="@+id/action_cadastrarProdutoFragment_to_valorTotalProdutoFragment"
+            app:destination="@id/valorTotalProdutoFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaProdutoFragment"
@@ -26,5 +29,24 @@
         android:id="@+id/detalheProdutoFragment"
         android:name="br.com.zup.simcity_saojoao.produto.detalhe.DetalheProdutoFragment"
         android:label="fragment_detalhe_produto"
-        tools:layout="@layout/fragment_detalhe_produto" />
+        tools:layout="@layout/fragment_detalhe_produto" >
+        <action
+            android:id="@+id/action_detalheProdutoFragment_to_valorTotalProdutoFragment2"
+            app:destination="@id/valorTotalProdutoFragment" />
+        <action
+            android:id="@+id/action_detalheProdutoFragment_to_listaProdutoFragment"
+            app:destination="@id/listaProdutoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/valorTotalProdutoFragment"
+        android:name="br.com.zup.simcity_saojoao.produto.fragmentsProduto.ValorTotalProdutoFragment"
+        android:label="fragment_valor_total_produto"
+        tools:layout="@layout/fragment_valor_total_produto" >
+        <action
+            android:id="@+id/action_valorTotalProdutoFragment_to_cadastrarProdutoFragment"
+            app:destination="@id/cadastrarProdutoFragment" />
+        <action
+            android:id="@+id/action_valorTotalProdutoFragment_to_listaProdutoFragment"
+            app:destination="@id/listaProdutoFragment" />
+    </fragment>
 </navigation>
