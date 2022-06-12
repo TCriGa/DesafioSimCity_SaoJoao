@@ -18,7 +18,7 @@ class CadastrarProdutoFragment : Fragment() {
     private lateinit var quantidade: String
     private lateinit var valorProduto: String
     private lateinit var receita: String
-    private val listaProduto = mutableListOf<Produto>()
+    private var listaProduto = mutableListOf<Produto>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,9 +31,14 @@ class CadastrarProdutoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+       receberArguments()
         clickButtonCadastrarNProduto()
         clickButtonIrParaDetalheProduto()
         clickIrParaValorTotal()
+    }
+
+    private fun receberArguments(){
+        listaProduto = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) ?: ArrayList()
     }
 
     private fun clickButtonCadastrarNProduto() {

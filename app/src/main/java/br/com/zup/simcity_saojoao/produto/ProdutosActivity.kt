@@ -1,15 +1,10 @@
 package br.com.zup.simcity_saojoao.produto
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.core.os.bundleOf
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.navArgument
-import br.com.zup.simcity_saojoao.CHAVE_PRODUTO
+import androidx.appcompat.app.AppCompatActivity
 import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.ActivityProdutosBinding
-import br.com.zup.simcity_saojoao.model.Produto
 
 class ProdutosActivity : AppCompatActivity() {
 
@@ -23,10 +18,9 @@ class ProdutosActivity : AppCompatActivity() {
 
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            this.finish()
+            onBackPressed()
             return true
         }
         return super.onOptionsItemSelected(item)
@@ -34,7 +28,8 @@ class ProdutosActivity : AppCompatActivity() {
 
     private fun mudarActionBar(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setTitle(getString(R.string.tituo_produtos))
+       supportActionBar?.setTitle(getString(R.string.titulo_produto))
+
     }
 
 }
