@@ -54,7 +54,6 @@ class CadastrarProdutoFragment : Fragment() {
     private fun clickButtonCadastrarNProduto() {
         binding.buttonCadastrarNovoProduto.setOnClickListener {
             adicionarProdutoLista()
-            limparDadosDoCarrinho()
 
         }
 
@@ -83,6 +82,7 @@ class CadastrarProdutoFragment : Fragment() {
                 Toast.LENGTH_SHORT
             )
                 .show()
+            limparDadosDoCarrinho()
         }
 
     }

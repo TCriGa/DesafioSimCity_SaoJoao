@@ -49,7 +49,7 @@ class DetalheProdutoFragment : Fragment() {
 
         if (produto != null) {
             binding.textNomeProduto.text =
-                "${getString(R.string.nome_do_produto)} ${produto.getNomeProduto()}"
+                produto.getNomeProduto()
             binding.textQuantidade.text =
                 "${getString(R.string.quantidade_produto)} ${produto.getQuantidade()}"
             binding.textValorUnitario.text =

@@ -7,25 +7,25 @@
     <string name="ir_para_detalhe_produto">Ir para Produto</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="cadastro_de_produto">Cadastro de Produto</string>
+    <string name="cadastro_de_produto">Cadastro de Produtos</string>
     <string name="nome_do_produto">"Nome do Produto:</string>
     <string name="nome_produto">"<b>"Nome do Produto:"</b></string>
     <string name="quantidade_produto">"<b>"Quantidade:"</b></string>
-    <string name="valor_unitario">"<b>"Valor Unitário:"</b></string>
+    <string name="valor_unitario">"<b>"Valor Unitário: R$"</b></string>
     <string name="receita_produto">"<b>"Receita:"</b></string>
-    <string name="valor_unitario_do_produto">Valor(unitario) do produto:</string>
+    <string name="valor_unitario_do_produto">Valor(unitário) do produto:</string>
     <string name="receita">Receita:</string>
     <string name="cadastrar_novo_produto">Cadastrar Novo Produto</string>
     <string name="ver_produto">Ver Produto</string>
     <string name="valor_total">Valor Total</string>
-    <string name="O_valor_total">"Valor total de todos os produtos é de R$:</string>
+    <string name="O_valor_total">"Valor total de todos os produtos é de R$</string>
     <string name="produto_cadastrado_sucesso">Produto Cadastrado com Sucesso!</string>
     <string name="produtos_cadastrados">Produtos Cadastrados:</string>
-    <string name="quantidade_de_produto">Quantidade de produto</string>
+    <string name="quantidade_de_produto">Quantidade do produto:</string>
     <string name="descircao_carrinho">Imagem de um carrinho de supermercado</string>
     <string name="nome_do_produto_cadastrado">Nome do Produto Cadastrado</string>
     <string name="quantidade">Quantidade:</string>
     <string name="mensagem_carrinho_vazio">Nada aqui :/ , Você não adicionou nada ao seu carrinho</string>
-    <string name="produto">Produto</string>
+    <string name="produto">Produtos</string>
     <string name="titulo_produto">Produto</string>
 </resources>
