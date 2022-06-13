@@ -13,6 +13,7 @@
 
         <ImageView
             android:id="@+id/imagem_carrinho"
+            android:layout_margin="@dimen/margin_16"
             android:layout_width="@dimen/width_50"
             android:layout_height="@dimen/height_50"
             android:contentDescription="@string/descircao_carrinho"
