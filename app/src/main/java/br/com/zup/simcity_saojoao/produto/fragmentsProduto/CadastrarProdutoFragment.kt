@@ -18,7 +18,7 @@ class CadastrarProdutoFragment : Fragment() {
     private lateinit var quantidade: String
     private lateinit var valorProduto: String
     private lateinit var receita: String
-    private var listaProduto = mutableListOf<Produto>()
+    private var listaNovaProduto = mutableListOf<Produto>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,14 +31,21 @@ class CadastrarProdutoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       receberArguments()
         clickButtonCadastrarNProduto()
         clickButtonIrParaDetalheProduto()
         clickIrParaValorTotal()
+        receberArguments()
     }
 
     private fun receberArguments(){
-        listaProduto = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) ?: ArrayList()
+        val listaRecebida = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) ?: ArrayList()
+        atualizarListaProdutos(listaRecebida)
+    }
+
+    fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
+        if (listaNovaProduto.size == 0) {
+            listaNovaProduto.addAll(novaListaProduto)
+        }
     }
 
     private fun clickButtonCadastrarNProduto() {
@@ -65,7 +72,7 @@ class CadastrarProdutoFragment : Fragment() {
         recuperarDadosProdutos()
         if (!verificarCamposEdicao()) {
             val produto = Produto(nomeProduto, quantidade.toInt(), valorProduto.toDouble(), receita)
-            listaProduto.add(produto)
+            listaNovaProduto.add(produto)
             Toast.makeText(
                 context,
                 getString(R.string.produto_cadastrado_sucesso),
@@ -84,13 +91,13 @@ class CadastrarProdutoFragment : Fragment() {
     }
 
     private fun irParaDetalheProduto() {
-        val bundle = bundleOf(CHAVE_PRODUTO to listaProduto)
+        val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_cadastrarProdutoFragment_to_listaProdutoFragment, bundle)
 
     }
     private fun irParaValorTotalProduto() {
-        val bundle = bundleOf(CHAVE_PRODUTO to listaProduto)
+        val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_cadastrarProdutoFragment_to_valorTotalProdutoFragment, bundle)
 

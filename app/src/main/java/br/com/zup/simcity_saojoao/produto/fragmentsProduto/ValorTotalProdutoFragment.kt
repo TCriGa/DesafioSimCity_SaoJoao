@@ -12,7 +12,6 @@ import br.com.zup.simcity_saojoao.databinding.FragmentValorTotalProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
 
 
-
 class ValorTotalProdutoFragment : Fragment() {
     private lateinit var binding: FragmentValorTotalProdutoBinding
 
@@ -22,13 +21,9 @@ class ValorTotalProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentValorTotalProdutoBinding.inflate(inflater, container, false)
-        receberArguments()
+
         return binding.root
 
-    }
-
-    private fun receberArguments(){
-        listaNovaProduto = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) ?: ArrayList()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,20 +49,25 @@ class ValorTotalProdutoFragment : Fragment() {
     }
 
     private fun clickCadastrarNovoProduto() {
-        listaNovaProduto = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) as ArrayList<Produto>
+        listaNovaProduto =
+            arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) as ArrayList<Produto>
         val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
         binding.buttonCadastrarNovoProduto2.setOnClickListener {
-            findNavController().navigate(R.id.action_valorTotalProdutoFragment_to_cadastrarProdutoFragment, bundle)
+            findNavController().navigate(
+                R.id.action_valorTotalProdutoFragment_to_cadastrarProdutoFragment,
+                bundle
+            )
         }
 
     }
 
     private fun clickVerProduto() {
-        listaNovaProduto = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) as ArrayList<Produto>
+        listaNovaProduto =
+            arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) as ArrayList<Produto>
         val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
         binding.buttonVerProduto.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(
-                R.id.action_valorTotalProdutoFragment_to_listaProdutoFragment,bundle
+                R.id.action_valorTotalProdutoFragment_to_listaProdutoFragment, bundle
             )
         }
     }
