@@ -32,7 +32,7 @@ class ProdutosActivity : AppCompatActivity() {
     private fun mudarActionBar() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setTitle(getString(R.string.titulo_produto))
+        supportActionBar?.setTitle(getString(R.string.tema_SimCity))
 
     }
 }

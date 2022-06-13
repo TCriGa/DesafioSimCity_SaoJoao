@@ -30,7 +30,7 @@ class DetalheProdutoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produto)
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.detalhes_do_produto)
 
         recuperarExibirDadosProduto()
         habilitarBotaoVoltar()
