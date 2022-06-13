@@ -1,26 +1,15 @@
 package br.com.zup.simcity_saojoao.produto.detalhe
 
-import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
-import android.text.style.ForegroundColorSpan
-import android.text.style.StyleSpan
-import android.text.style.TypefaceSpan
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.clearFragmentResult
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import br.com.zup.simcity_saojoao.CHAVE_PRODUTO
-import br.com.zup.simcity_saojoao.NOM_PRODUTO
+import br.com.zup.simcity_saojoao.ICONE_FAVORITAR
 import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.FragmentDetalheProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
@@ -41,9 +30,9 @@ class DetalheProdutoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         verificarCamposNulos()
         botaoVoltar()
+        cliclIconeFavoritar()
 
     }
-
 
     private fun botaoVoltar(){
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
@@ -74,6 +63,12 @@ class DetalheProdutoFragment : Fragment() {
 
         } else {
             recuperarExibirDadosProduto()
+        }
+    }
+
+    private fun cliclIconeFavoritar(){
+        binding.imagemFavoritar.setOnClickListener {
+            Toast.makeText(context, ICONE_FAVORITAR, Toast.LENGTH_LONG).show()
         }
     }
 }

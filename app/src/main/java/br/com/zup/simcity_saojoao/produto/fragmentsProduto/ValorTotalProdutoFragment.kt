@@ -23,7 +23,6 @@ class ValorTotalProdutoFragment : Fragment() {
         binding = FragmentValorTotalProdutoBinding.inflate(inflater, container, false)
 
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +42,7 @@ class ValorTotalProdutoFragment : Fragment() {
         arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO)?.forEach {
             valorTotal += (it.getValorProduto() * it.getQuantidade())
 
-            binding.textValorTotal.text = "Valor total de todos os produtos é de R$: $valorTotal"
+            binding.textValorTotal.text = "${getString(R.string.O_valor_total)} $valorTotal"
         }
 
     }

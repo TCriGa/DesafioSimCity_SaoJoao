@@ -20,7 +20,6 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="@dimen/margin_16"
         android:id="@+id/rvListaProdutos"
         android:layout_width="match_parent"
         android:layout_height="0dp"
