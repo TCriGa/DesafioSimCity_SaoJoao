@@ -25,8 +25,7 @@ class CadastrarProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCadastrarProdutoBinding.inflate(inflater, container, false)
-        setHasOptionsMenu(true)
-         return binding.root
+        return binding.root
 
     }
 
@@ -38,12 +37,12 @@ class CadastrarProdutoFragment : Fragment() {
         receberArguments()
     }
 
-    private fun receberArguments(){
+    private fun receberArguments() {
         val listaRecebida = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) ?: ArrayList()
         atualizarListaProdutos(listaRecebida)
     }
 
-    fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
+    private fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
         if (listaNovaProduto.size == 0) {
             listaNovaProduto.addAll(novaListaProduto)
         }
@@ -51,7 +50,7 @@ class CadastrarProdutoFragment : Fragment() {
 
     private fun clickButtonCadastrarNProduto() {
         binding.buttonCadastrarNovoProduto.setOnClickListener {
-            adicianarProdutoLista()
+            adicionarProdutoLista()
             limparDadosDoCarrinho()
 
         }
@@ -63,13 +62,14 @@ class CadastrarProdutoFragment : Fragment() {
             irParaDetalheProduto()
         }
     }
-    private fun clickIrParaValorTotal(){
+
+    private fun clickIrParaValorTotal() {
         binding.buttonValorTotal.setOnClickListener {
             irParaValorTotalProduto()
         }
     }
 
-    private fun adicianarProdutoLista() {
+    private fun adicionarProdutoLista() {
         recuperarDadosProdutos()
         if (!verificarCamposEdicao()) {
             val produto = Produto(nomeProduto, quantidade.toInt(), valorProduto.toDouble(), receita)
@@ -97,6 +97,7 @@ class CadastrarProdutoFragment : Fragment() {
             .navigate(R.id.action_cadastrarProdutoFragment_to_listaProdutoFragment, bundle)
 
     }
+
     private fun irParaValorTotalProduto() {
         val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
         NavHostFragment.findNavController(this)

@@ -28,45 +28,36 @@ class DetalheProdutoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        verificarCamposNulos()
-        botaoVoltar()
+        recuperarExibirDadosProduto()
+        habilitarBotaoVoltar()
         cliclIconeFavoritar()
 
     }
 
-    private fun botaoVoltar(){
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+    private fun habilitarBotaoVoltar() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().navigateUp()
-
-
         }
     }
+
     private fun recuperarExibirDadosProduto() {
         val produto = arguments?.getParcelable<Produto>(CHAVE_PRODUTO)
 
         if (produto != null) {
-            binding.textNomeProduto.text = "${getString(R.string.nome_do_produto)} ${produto.getNomeProduto()}"
-            binding.textQuantidade.text = "${getString(R.string.quantidade_produto)} ${produto.getQuantidade()}"
-            binding.textValorUnitario.text = "${getString(R.string.valor_unitario)} ${produto.getValorProduto()}"
-            binding.textReceita.text = "${getString(R.string.receita_produto)} ${produto.getReceita()}"
-
+            binding.textNomeProduto.text =
+                "${getString(R.string.nome_do_produto)} ${produto.getNomeProduto()}"
+            binding.textQuantidade.text =
+                "${getString(R.string.quantidade_produto)} ${produto.getQuantidade()}"
+            binding.textValorUnitario.text =
+                "${getString(R.string.valor_unitario)} ${produto.getValorProduto()}"
+            binding.textReceita.text =
+                "${getString(R.string.receita_produto)} ${produto.getReceita()}"
 
         }
     }
 
-    private fun verificarCamposNulos() {
-        if (binding.textNomeProduto.text.isEmpty() &&
-            binding.textValorUnitario.text.isEmpty() &&
-            binding.textQuantidade.text.isEmpty() &&
-            binding.textReceita.text.isEmpty()
-        ) {
 
-        } else {
-            recuperarExibirDadosProduto()
-        }
-    }
-
-    private fun cliclIconeFavoritar(){
+    private fun cliclIconeFavoritar() {
         binding.imagemFavoritar.setOnClickListener {
             Toast.makeText(context, ICONE_FAVORITAR, Toast.LENGTH_LONG).show()
         }

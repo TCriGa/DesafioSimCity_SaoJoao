@@ -9,7 +9,7 @@ import br.com.zup.simcity_saojoao.model.Produto
 
 class ProdutoAdapter(
     private var listaProdutos: MutableList<Produto>,
-    private val clickProduto: (produto : Produto) -> Unit
+    private val clickProduto: (produto: Produto) -> Unit
 ) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,7 +27,7 @@ class ProdutoAdapter(
 
     override fun getItemCount() = listaProdutos.size
 
-    fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
+  fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
         if (listaProdutos.size == 0) {
             listaProdutos.addAll(novaListaProduto)
         }
@@ -35,9 +35,9 @@ class ProdutoAdapter(
     }
 
     class ViewHolder(val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun adicionarInformacoesView(produto: Produto) {
-            binding.textListaProdutosCadastrados.text = produto.getNomeProduto()
-            binding.textQuantidadeCadastrada.text = "${produto.getQuantidade()} -->"
+       fun adicionarInformacoesView(produto: Produto) {
+            binding.textNomeProdutosCadastrados.text = produto.getNomeProduto()
+            binding.textQuantidadeCadastrada.text = "${produto.getQuantidade()} ->"
         }
     }
 }

@@ -19,7 +19,7 @@
     <string name="ver_produto">Ver Produto</string>
     <string name="valor_total">Valor Total</string>
     <string name="O_valor_total">"Valor total de todos os produtos é de R$:</string>
-    <string name="produto_cadastrado_sucesso">Produto Cadastrado com sucesso!</string>
+    <string name="produto_cadastrado_sucesso">Produto Cadastrado com Sucesso!</string>
     <string name="produtos_cadastrados">Produtos Cadastrados:</string>
     <string name="quantidade_de_produto">Quantidade de produto</string>
     <string name="descircao_carrinho">Imagem de um carrinho de supermercado</string>

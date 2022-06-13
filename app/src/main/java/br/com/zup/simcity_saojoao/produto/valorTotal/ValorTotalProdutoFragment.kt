@@ -1,7 +1,9 @@
 package br.com.zup.simcity_saojoao.produto.valorTotal
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -30,12 +32,6 @@ class ValorTotalProdutoFragment : Fragment() {
         clickCadastrarNovoProduto()
         clickVerProduto()
     }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(androidx.core.R.menu.example_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
 
     private fun receberExibirDadosProdutos() {
         var valorTotal = 0.0
@@ -72,3 +68,4 @@ class ValorTotalProdutoFragment : Fragment() {
     }
 
 }
+

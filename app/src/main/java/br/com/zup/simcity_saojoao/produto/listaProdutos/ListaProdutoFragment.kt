@@ -1,7 +1,9 @@
 package br.com.zup.simcity_saojoao.produto.listaProdutos
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -13,7 +15,9 @@ import br.com.zup.simcity_saojoao.model.Produto
 import br.com.zup.simcity_saojoao.produto.adapter.ProdutoAdapter
 
 class ListaProdutoFragment : Fragment() {
+
     private lateinit var binding: FragmentListaProdutoBinding
+
     private val produtoAdapter: ProdutoAdapter by lazy {
         ProdutoAdapter(arrayListOf(), ::irParDetalheProdutoFragment)
     }
@@ -32,7 +36,6 @@ class ListaProdutoFragment : Fragment() {
 
     }
 
-
     private fun exibirRecycleView() {
         binding.rvListaProdutos.adapter = produtoAdapter
         binding.rvListaProdutos.layoutManager = LinearLayoutManager(context)
@@ -46,7 +49,6 @@ class ListaProdutoFragment : Fragment() {
             produtoAdapter.atualizarListaProdutos(receberProdutos)
             exibirRecycleView()
         }
-
     }
 
     private fun irParDetalheProdutoFragment(produto: Produto) {
