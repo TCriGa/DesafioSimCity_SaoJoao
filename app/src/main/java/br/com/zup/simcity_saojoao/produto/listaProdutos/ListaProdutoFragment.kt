@@ -1,9 +1,7 @@
 package br.com.zup.simcity_saojoao.produto.listaProdutos
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -12,6 +10,7 @@ import br.com.zup.simcity_saojoao.CHAVE_PRODUTO
 import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.FragmentListaProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
+import br.com.zup.simcity_saojoao.produto.ProdutosActivity
 import br.com.zup.simcity_saojoao.produto.adapter.ProdutoAdapter
 
 class ListaProdutoFragment : Fragment() {
@@ -27,14 +26,17 @@ class ListaProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentListaProdutoBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recuperarDadosProdutos()
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produto)
 
+        recuperarDadosProdutos()
     }
+
 
     private fun exibirRecycleView() {
         binding.rvListaProdutos.adapter = produtoAdapter

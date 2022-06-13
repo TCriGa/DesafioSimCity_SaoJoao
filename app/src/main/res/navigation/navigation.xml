@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/detalheProdutoFragment"
         android:name="br.com.zup.simcity_saojoao.produto.detalhe.DetalheProdutoFragment"
-        android:label="Detalhe Produto"
+        android:label="Produto"
         tools:layout="@layout/fragment_detalhe_produto" >
         <action
             android:id="@+id/action_detalheProdutoFragment_to_valorTotalProdutoFragment2"

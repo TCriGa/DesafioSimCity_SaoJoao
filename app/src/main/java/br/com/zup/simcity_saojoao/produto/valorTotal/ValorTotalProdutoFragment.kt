@@ -2,6 +2,7 @@ package br.com.zup.simcity_saojoao.produto.valorTotal
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
@@ -12,6 +13,7 @@ import br.com.zup.simcity_saojoao.CHAVE_PRODUTO
 import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.FragmentValorTotalProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
+import br.com.zup.simcity_saojoao.produto.ProdutosActivity
 
 
 class ValorTotalProdutoFragment : Fragment() {
@@ -23,6 +25,8 @@ class ValorTotalProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentValorTotalProdutoBinding.inflate(inflater, container, false)
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.valor_total)
+
         return binding.root
     }
 

@@ -13,6 +13,7 @@ import br.com.zup.simcity_saojoao.ICONE_FAVORITAR
 import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.FragmentDetalheProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
+import br.com.zup.simcity_saojoao.produto.ProdutosActivity
 
 class DetalheProdutoFragment : Fragment() {
 
@@ -23,11 +24,14 @@ class DetalheProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetalheProdutoBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produto)
+
         recuperarExibirDadosProduto()
         habilitarBotaoVoltar()
         cliclIconeFavoritar()

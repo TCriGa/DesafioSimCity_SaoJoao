@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcity_saojoao.*
 import br.com.zup.simcity_saojoao.databinding.FragmentCadastrarProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
+import br.com.zup.simcity_saojoao.produto.ProdutosActivity
 
 class CadastrarProdutoFragment : Fragment() {
     private lateinit var binding: FragmentCadastrarProdutoBinding
@@ -31,6 +32,8 @@ class CadastrarProdutoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produto)
+
         clickButtonCadastrarNProduto()
         clickButtonIrParaDetalheProduto()
         clickIrParaValorTotal()
