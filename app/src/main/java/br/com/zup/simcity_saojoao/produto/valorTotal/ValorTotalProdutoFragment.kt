@@ -1,4 +1,4 @@
-package br.com.zup.simcity_saojoao.produto.fragmentsProduto
+package br.com.zup.simcity_saojoao.produto.valorTotal
 
 import android.os.Bundle
 import android.view.*
@@ -21,7 +21,6 @@ class ValorTotalProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentValorTotalProdutoBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -36,6 +35,7 @@ class ValorTotalProdutoFragment : Fragment() {
         inflater.inflate(androidx.core.R.menu.example_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+
 
     private fun receberExibirDadosProdutos() {
         var valorTotal = 0.0

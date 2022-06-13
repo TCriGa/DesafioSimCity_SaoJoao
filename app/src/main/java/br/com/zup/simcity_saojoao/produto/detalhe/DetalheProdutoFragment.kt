@@ -47,7 +47,7 @@ class DetalheProdutoFragment : Fragment() {
         if (produto != null) {
             binding.textNomeProduto.text = "${getString(R.string.nome_do_produto)} ${produto.getNomeProduto()}"
             binding.textQuantidade.text = "${getString(R.string.quantidade_produto)} ${produto.getQuantidade()}"
-            binding.textValorUnitario.text = "${getString(R.string.valor_unitario)}: ${produto.getValorProduto()}"
+            binding.textValorUnitario.text = "${getString(R.string.valor_unitario)} ${produto.getValorProduto()}"
             binding.textReceita.text = "${getString(R.string.receita_produto)} ${produto.getReceita()}"
 
 

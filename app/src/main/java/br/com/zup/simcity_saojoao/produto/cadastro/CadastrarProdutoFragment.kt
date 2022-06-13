@@ -1,4 +1,4 @@
-package br.com.zup.simcity_saojoao.produto.fragmentsProduto
+package br.com.zup.simcity_saojoao.produto.cadastro
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -25,7 +25,8 @@ class CadastrarProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCadastrarProdutoBinding.inflate(inflater, container, false)
-        return binding.root
+        setHasOptionsMenu(true)
+         return binding.root
 
     }
 

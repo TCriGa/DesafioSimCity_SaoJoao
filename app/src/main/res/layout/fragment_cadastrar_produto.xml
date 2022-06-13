@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".produto.fragmentsProduto.CadastrarProdutoFragment">
+    tools:context=".produto.cadastro.CadastrarProdutoFragment">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -40,7 +40,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size_16"
-        android:layout_marginStart="16dp"
         android:hint="@string/nome_do_produto"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/fragment"
