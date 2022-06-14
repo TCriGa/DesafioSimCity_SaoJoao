@@ -3,9 +3,7 @@ package br.com.zup.simcity_saojoao.produto
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import br.com.zup.simcity_saojoao.R
 import br.com.zup.simcity_saojoao.databinding.ActivityProdutosBinding
 
@@ -30,9 +28,8 @@ class ProdutosActivity : AppCompatActivity() {
     }
 
     private fun mudarActionBar() {
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setTitle(getString(R.string.tema_SimCity))
+        supportActionBar?.title = getString(R.string.tema_SimCity)
 
     }
 }

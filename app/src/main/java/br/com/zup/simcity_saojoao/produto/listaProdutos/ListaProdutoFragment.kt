@@ -2,6 +2,7 @@ package br.com.zup.simcity_saojoao.produto.listaProdutos
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -26,29 +27,22 @@ class ListaProdutoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentListaProdutoBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produto)
-
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.produto)
         recuperarDadosProdutos()
     }
 
-
     private fun exibirRecycleView() {
         binding.rvListaProdutos.adapter = produtoAdapter
-        binding.rvListaProdutos.layoutManager = LinearLayoutManager(context)
-
     }
 
     private fun recuperarDadosProdutos() {
-        val receberProdutos = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO)
-
-        if (receberProdutos != null) {
-            produtoAdapter.atualizarListaProdutos(receberProdutos)
+        arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO)?.let {
+            produtoAdapter.atualizarListaProdutos(it)
             exibirRecycleView()
         }
     }
@@ -57,7 +51,6 @@ class ListaProdutoFragment : Fragment() {
         val bundle = bundleOf(CHAVE_PRODUTO to produto)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_listaProdutoFragment_to_detalheProdutoFragment, bundle)
-
     }
 }
 

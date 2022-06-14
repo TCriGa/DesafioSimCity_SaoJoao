@@ -27,6 +27,7 @@ class ProdutoAdapter(
 
     override fun getItemCount() = listaProdutos.size
 
+
   fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
         if (listaProdutos.size == 0) {
             listaProdutos.addAll(novaListaProduto)

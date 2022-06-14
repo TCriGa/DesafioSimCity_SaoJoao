@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -15,10 +16,6 @@ import br.com.zup.simcity_saojoao.produto.ProdutosActivity
 
 class CadastrarProdutoFragment : Fragment() {
     private lateinit var binding: FragmentCadastrarProdutoBinding
-    private lateinit var nomeProduto: String
-    private lateinit var quantidade: String
-    private lateinit var valorProduto: String
-    private lateinit var receita: String
     private var listaNovaProduto = mutableListOf<Produto>()
 
     override fun onCreateView(
@@ -32,7 +29,7 @@ class CadastrarProdutoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produto)
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.produto)
 
         clickButtonCadastrarNProduto()
         clickButtonIrParaDetalheProduto()
@@ -72,7 +69,31 @@ class CadastrarProdutoFragment : Fragment() {
     }
 
     private fun adicionarProdutoLista() {
-        recuperarDadosProdutos()
+        var nomeProduto = binding.editNomeProduto.text.toString()
+        var quantidade: String = binding.editQuantidade.text.toString()
+        var valorProduto: String = binding.editValorUnitario.text.toString()
+        var receita: String = binding.editReceita.text.toString()
+        fun verificarCamposEdicao(): Boolean {
+            when {
+                nomeProduto.isEmpty() -> {
+                    binding.editNomeProduto.error = MENSAGEM_ERRO_NOME_PRODUTO
+                    return true
+                }
+                quantidade.isEmpty() -> {
+                    binding.editQuantidade.error = MENSAGEM_ERRO_QUANTIDADE
+                    return true
+                }
+                valorProduto.isEmpty() -> {
+                    binding.editValorUnitario.error = MENSAGEM_ERRO_VALOR_PRODUTO
+                    return true
+                }
+                receita.isEmpty() -> {
+                    binding.editReceita.error = MENSAGEM_ERRO_RECEITA
+                    return true
+                }
+            }
+            return false
+        }
         if (!verificarCamposEdicao()) {
             val produto = Produto(nomeProduto, quantidade.toInt(), valorProduto.toDouble(), receita)
             listaNovaProduto.add(produto)
@@ -87,12 +108,6 @@ class CadastrarProdutoFragment : Fragment() {
 
     }
 
-    private fun recuperarDadosProdutos() {
-        this.nomeProduto = binding.editNomeProduto.text.toString()
-        this.quantidade = binding.editQuantidade.text.toString()
-        this.valorProduto = binding.editValorUnitario.text.toString()
-        this.receita = binding.editReceita.text.toString()
-    }
 
     private fun irParaDetalheProduto() {
         val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
@@ -107,29 +122,6 @@ class CadastrarProdutoFragment : Fragment() {
             .navigate(R.id.action_cadastrarProdutoFragment_to_valorTotalProdutoFragment, bundle)
 
     }
-
-    private fun verificarCamposEdicao(): Boolean {
-        when {
-            this.nomeProduto.isEmpty() -> {
-                binding.editNomeProduto.error = MENSAGEM_ERRO_NOME_PRODUTO
-                return true
-            }
-            this.quantidade.isEmpty() -> {
-                binding.editQuantidade.error = MENSAGEM_ERRO_QUANTIDADE
-                return true
-            }
-            this.valorProduto.isEmpty() -> {
-                binding.editValorUnitario.error = MENSAGEM_ERRO_VALOR_PRODUTO
-                return true
-            }
-            this.receita.isEmpty() -> {
-                binding.editReceita.error = MENSAGEM_ERRO_RECEITA
-                return true
-            }
-        }
-        return false
-    }
-
 
     private fun limparDadosDoCarrinho() {
         binding.editNomeProduto.text.clear()
