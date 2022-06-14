@@ -12,7 +12,6 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcity_saojoao.*
 import br.com.zup.simcity_saojoao.databinding.FragmentCadastrarProdutoBinding
 import br.com.zup.simcity_saojoao.model.Produto
-import br.com.zup.simcity_saojoao.produto.ProdutosActivity
 
 class CadastrarProdutoFragment : Fragment() {
     private lateinit var binding: FragmentCadastrarProdutoBinding
@@ -34,15 +33,13 @@ class CadastrarProdutoFragment : Fragment() {
         clickButtonCadastrarNProduto()
         clickButtonIrParaDetalheProduto()
         clickIrParaValorTotal()
-        receberArguments()
+        atualizarListaProdutos()
     }
 
-    private fun receberArguments() {
-        val listaRecebida = arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) ?: ArrayList()
-        atualizarListaProdutos(listaRecebida)
-    }
 
-    private fun atualizarListaProdutos(novaListaProduto: MutableList<Produto>) {
+    private fun atualizarListaProdutos() {
+        val novaListaProduto =
+            arguments?.getParcelableArrayList<Produto>(CHAVE_PRODUTO) ?: ArrayList()
         if (listaNovaProduto.size == 0) {
             listaNovaProduto.addAll(novaListaProduto)
         }
@@ -51,9 +48,7 @@ class CadastrarProdutoFragment : Fragment() {
     private fun clickButtonCadastrarNProduto() {
         binding.buttonCadastrarNovoProduto.setOnClickListener {
             adicionarProdutoLista()
-
         }
-
     }
 
     private fun clickButtonIrParaDetalheProduto() {
@@ -69,10 +64,11 @@ class CadastrarProdutoFragment : Fragment() {
     }
 
     private fun adicionarProdutoLista() {
-        var nomeProduto = binding.editNomeProduto.text.toString()
-        var quantidade: String = binding.editQuantidade.text.toString()
-        var valorProduto: String = binding.editValorUnitario.text.toString()
-        var receita: String = binding.editReceita.text.toString()
+        val nomeProduto: String = binding.editNomeProduto.text.toString()
+        val quantidade: String = binding.editQuantidade.text.toString()
+        val valorProduto: String = binding.editValorUnitario.text.toString()
+        val receita: String = binding.editReceita.text.toString()
+
         fun verificarCamposEdicao(): Boolean {
             when {
                 nomeProduto.isEmpty() -> {
@@ -94,6 +90,7 @@ class CadastrarProdutoFragment : Fragment() {
             }
             return false
         }
+
         if (!verificarCamposEdicao()) {
             val produto = Produto(nomeProduto, quantidade.toInt(), valorProduto.toDouble(), receita)
             listaNovaProduto.add(produto)
@@ -101,26 +98,29 @@ class CadastrarProdutoFragment : Fragment() {
                 context,
                 getString(R.string.produto_cadastrado_sucesso),
                 Toast.LENGTH_SHORT
-            )
-                .show()
+            ).show()
             limparDadosDoCarrinho()
         }
-
     }
 
+    private fun getListaBundle(): Bundle {
+        return bundleOf(CHAVE_PRODUTO to listaNovaProduto)
+    }
 
     private fun irParaDetalheProduto() {
-        val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_cadastrarProdutoFragment_to_listaProdutoFragment, bundle)
-
+            .navigate(
+                R.id.action_cadastrarProdutoFragment_to_listaProdutoFragment,
+                getListaBundle()
+            )
     }
 
     private fun irParaValorTotalProduto() {
-        val bundle = bundleOf(CHAVE_PRODUTO to listaNovaProduto)
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_cadastrarProdutoFragment_to_valorTotalProdutoFragment, bundle)
-
+            .navigate(
+                R.id.action_cadastrarProdutoFragment_to_valorTotalProdutoFragment,
+                getListaBundle()
+            )
     }
 
     private fun limparDadosDoCarrinho() {
