@@ -53,13 +53,23 @@ class CadastrarProdutoFragment : Fragment() {
 
     private fun clickButtonIrParaDetalheProduto() {
         binding.buttonVerProdutos.setOnClickListener {
-            irParaDetalheProduto()
+            if(listaNovaProduto.size == 0){
+                Toast.makeText(this.context, MENSAGEM_CARRINHO_VAZIO, Toast.LENGTH_SHORT).show()
+            }else{
+                irParaDetalheProduto()
+            }
+
         }
     }
 
     private fun clickIrParaValorTotal() {
         binding.buttonValorTotal.setOnClickListener {
-            irParaValorTotalProduto()
+            if(listaNovaProduto.size == 0){
+                Toast.makeText(this.context, MENSAGEM_CARRINHO_VAZIO, Toast.LENGTH_SHORT).show()
+            }else{
+                irParaValorTotalProduto()
+            }
+
         }
     }
 

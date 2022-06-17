@@ -40,12 +40,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size_16"
+        android:layout_marginStart="16dp"
         android:hint="@string/nome_do_produto"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/fragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_cadastro"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edit_quantidade"
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
         android:hint="@string/quantidade_de_produto"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +70,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/fragment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_quantidade"
         app:layout_constraintVertical_bias="0.0" />
